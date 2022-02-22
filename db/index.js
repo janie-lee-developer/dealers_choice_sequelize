@@ -65,8 +65,8 @@ const syncAndSeed = async() => {
     //     })
     // );
 
-    // const [ lucy, moe, bob, kevin, janie, mansoo, henry, morris, michael, jessica, larry, gary, pita, moon, kim ] = Promise.all(
-    //     ['Lucy Harris','Moe Kaleb','bob Simpson','Kevin Hart','Janie Lee', 'Mansoo Kim', 'Henry Castle', 'Morris Sung', 'Michael Chess', 'Jessica Holland', 'Larry Mork', 'Gary Tam', 'Pita Ten', 'Moon Kim', 'Kim Ha'].map( name => {
+    // const [ lucy, moe, bob, kevin, janie, henry, morris, michael, jessica, larry, gary, pita, moon, kim ] = Promise.all(
+    //     ['Lucy Harris','Moe Kaleb','bob Simpson','Kevin Hart','Janie Lee', 'Henry Castle', 'Morris Sung', 'Michael Chess', 'Jessica Holland', 'Larry Mork', 'Gary Tam', 'Pita Ten', 'Moon Kim', 'Kim Ha'].map( name => {
     //         Person.create({name})
     //     })
     // );
@@ -78,14 +78,14 @@ const syncAndSeed = async() => {
     const socialStudies = await Subject.create({ name: "social_studies" });
 
     const janie = await Student.create({ name: "Janie Lee" });
-    const mansoo = await Student.create({ name: "Mansoo" });
+    const maison = await Student.create({ name: "Maison" });
     const lucy = await Student.create({name: "Lucy Harris"});
     const moe = await Student.create({ name: "Moe Kaleb", leaderId: janie.id, leadersName: janie.name });
     const bob = await Student.create({ name: "Bob Simpson", leaderId: janie.id, leadersName: janie.name  });
     const kevin = await Student.create({ name: "Kevin Hart", leaderId: janie.id, leadersName: janie.name  });
-    const henry = await Student.create({ name: "Henry Castle", leaderId: mansoo.id, leadersName: mansoo.name  });
-    const morris = await Student.create({ name: "Morris Sung", leaderId: mansoo.id, leadersName: mansoo.name });
-    const jessica = await Student.create({ name: "Jessica Holland", leaderId: mansoo.id, leadersName: mansoo.name  });
+    const henry = await Student.create({ name: "Henry Castle", leaderId: maison.id, leadersName: maison.name  });
+    const morris = await Student.create({ name: "Morris Sung", leaderId: maison.id, leadersName: maison.name });
+    const jessica = await Student.create({ name: "Jessica Holland", leaderId: maison.id, leadersName: maison.name  });
     const larry = await Student.create({ name: "Larry Mork", leaderId: lucy.id, leadersName: lucy.name  });
 
     await Promise.all(
@@ -95,7 +95,7 @@ const syncAndSeed = async() => {
     );
 
     await Promise.all(
-        [kevin, janie, mansoo].map(student => {
+        [kevin, janie, maison].map(student => {
             Registration.create({ studentId: student.id, subjectName: chemistry.name, subjectId: chemistry.id })
         })
     );
